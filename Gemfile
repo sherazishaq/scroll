@@ -4,10 +4,15 @@ gem 'rails', '3.0.4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
-
 gem "paperclip", "~> 2.3"
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
+group :production do
+  gem 'pg'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
