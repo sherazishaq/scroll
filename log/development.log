@@ -39,3 +39,67 @@ Migrating to AddPicPaperclip (20110308195425)
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
   [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+
+
+Started GET "/" for 127.0.0.1 at 2013-04-29 19:31:48 +0500
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 107ms (Views: 9.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/new" for 127.0.0.1 at 2013-04-29 19:31:52 +0500
+  Processing by UsersController#new as HTML
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_users__form_html_erb__466552591_76844890_493937998 at /home/haseeb/projects/PaperClipExample/app/views/users/_form.html.erb:1)
+Rendered users/_form.html.erb (38.2ms)
+Rendered users/new.html.erb within layouts/application (44.7ms)
+Completed 200 OK in 75ms (Views: 50.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2013-04-29 19:32:31 +0500
+  Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NFs2TcoV71rnIbzjYOal84+hi2CWoClObyMEZmz5s1E=", "user"=>{"name"=>"A", "email"=>"A", "pic"=>#<ActionDispatch::Http::UploadedFile:0xa306efc @original_filename="about_img.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"user[pic]\"; filename=\"about_img.png\"\r\nContent-Type: image/png\r\n", @tempfile=#<File:/tmp/RackMultipart20130429-3268-1h7mbe3>>}, "commit"=>"Create User"}
+[paperclip] identify -format %wx%h '/tmp/stream20130429-3268-oz2w5h.png[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream20130429-3268-oz2w5h.png[0]' -resize "300x300>" '/tmp/stream20130429-3268-oz2w5h20130429-3268-1iybxmf' 2>/dev/null
+[paperclip] identify -format %wx%h '/tmp/stream20130429-3268-oz2w5h.png[0]' 2>/dev/null
+[paperclip] convert '/tmp/stream20130429-3268-oz2w5h.png[0]' -resize "100x100>" '/tmp/stream20130429-3268-oz2w5h20130429-3268-j8nbn7' 2>/dev/null
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (1.0ms)[0m  [1mINSERT INTO "users" ("name", "email", "created_at", "updated_at", "attach_file_name", "attach_content_type", "attach_file_size", "attach_updated_at", "pic_file_name", "pic_content_type", "pic_file_size", "pic_updated_at") VALUES ('A', 'A', '2013-04-29 14:32:32.786218', '2013-04-29 14:32:32.786218', NULL, NULL, NULL, NULL, 'about_img.png', 'image/png', 10772, '2013-04-29 14:32:31.936429')[0m
+[paperclip] Saving attachments.
+[paperclip] saving /home/haseeb/projects/PaperClipExample/public/system/pics/1/original/about_img.png
+[paperclip] saving /home/haseeb/projects/PaperClipExample/public/system/pics/1/medium/about_img.png
+[paperclip] saving /home/haseeb/projects/PaperClipExample/public/system/pics/1/thumb/about_img.png
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 1173ms
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-04-29 19:32:33 +0500
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mUser Load (1.1ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1
+Rendered users/show.html.erb within layouts/application (28.2ms)
+Completed 200 OK in 60ms (Views: 34.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-04-29 19:32:57 +0500
+  Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+Rendered users/index.html.erb within layouts/application (25.8ms)
+Completed 200 OK in 50ms (Views: 31.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2013-04-29 19:35:14 +0500
+  Processing by UsersController#index as HTML
+  [1m[35mUser Load (1.3ms)[0m  SELECT "users".* FROM "users"
+Rendered users/index.html.erb within layouts/application (72.5ms)
+Completed 200 OK in 96ms (Views: 78.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2013-04-29 19:35:18 +0500
+  Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1[0m
+Rendered users/show.html.erb within layouts/application (70.9ms)
+Completed 200 OK in 103ms (Views: 76.7ms | ActiveRecord: 1.1ms)
