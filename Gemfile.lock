@@ -42,7 +42,6 @@ GEM
     paperclip (2.3.8)
       activerecord
       activesupport
-    pg (0.15.1)
     polyglot (0.3.1)
     rack (1.2.1)
     rack-mount (0.6.13)
@@ -74,6 +73,5 @@ PLATFORMS
 
 DEPENDENCIES
   paperclip (~> 2.3)
-  pg
   rails (= 3.0.4)
   sqlite3
